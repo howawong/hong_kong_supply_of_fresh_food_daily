@@ -34,7 +34,7 @@ next(reader, None)
 
 def remove_brackets(s):
     return s.replace("(", "").replace(")", "")
-
+cnt = 0
 for r in reader:
     if r[0] == '':
         continue
@@ -77,3 +77,5 @@ for r in reader:
         if k.endswith("chi"):
             d[k] = v.decode("utf-8")  
     scraperwiki.sqlite.save(unique_keys=['revision_date', 'category_eng', 'fresh_food_category_eng', 'food_type_eng', 'source_eng', 'provider_eng'], data=d)
+    cnt += 1
+print  "%d rows inserted." % (cnt)
