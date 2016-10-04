@@ -76,6 +76,7 @@ for r in reader:
         v = d[k]
         if k.endswith("chi"):
             d[k] = v.decode("utf-8")  
-    scraperwiki.sqlite.save(unique_keys=['revision_date', 'category_eng', 'fresh_food_category_eng', 'food_type_eng', 'source_eng', 'provider_eng'], data=d)
+    print scraperwiki.sqlite.save(unique_keys=['revision_date', 'category_eng', 'fresh_food_category_eng', 'food_type_eng', 'source_eng', 'provider_eng'], data=d)
     cnt += 1
 print  "%d rows inserted." % (cnt)
+print scraperwiki.sqlite.show_tables()  
