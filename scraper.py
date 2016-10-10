@@ -22,7 +22,7 @@
 # All that matters is that your final data is written to an SQLite database
 # called "data.sqlite" in the current working directory which has at least a table
 # called "data".
-
+# -*- coding: utf-8 -*-
 import scraperwiki
 import csv
 from datetime import datetime
@@ -47,7 +47,7 @@ for r in reader:
     intake_date_chi =  remove_brackets(r[-7])
     unit_eng =  remove_brackets(r[-10])
     unit_chi =  remove_brackets(r[-9])
-    intake = int(r[-11] if r[-11] != '-' else "0") 
+    intake = int(r[-11] if r[-11] not in ['-', u"Rest Day", u"是日休市"] else "0") 
     food_type_eng =  r[-14]
     food_type_chi =  r[-13]
     fresh_food_category_eng =  r[-16]
